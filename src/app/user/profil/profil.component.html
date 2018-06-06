@@ -1,0 +1,203 @@
+<app-menu-admin>
+
+
+
+
+  <table class="table table-bordered table-dark">
+    <thead>
+      <tr>
+        <th scope="col">nom</th>
+        <th scope="col">prenom</th>
+        <th scope="col">email</th>
+        <th scope="col">adresse</th>
+        <th scope="col">tel</th>
+        <th scope="col">cin</th>
+        <th scope="col">poste</th>
+        <th scope="col">entreprise</th>
+        <th scope="col">passe</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let profil of profil">
+        <th scope="row" style="width: 110px;">
+
+          <button mat-icon-button (click)="profilEditBtn(profil._id)" data-toggle="modal" data-target="#exampleModalEdit">
+            <mat-icon>Edit</mat-icon>
+          </button>
+        </th>
+        <td>{{profil.nom}}</td>
+        <td>{{profil.prenom}}</td>
+        <td>{{profil.email}}</td>
+        <td>{{profil.adresse}}</td>
+        <td>{{profil.tel}}</td>
+        <td>{{profil.cin}}</td>
+        <td>{{profil.poste}}</td>
+        <td>{{profil.entreprise}}</td>
+        <td>{{profil.passe}}</td>
+
+      </tr>
+
+
+    </tbody>
+  </table>
+  <button mat-fab  color="primary" data-toggle="modal" data-target="#exampleModal">
+      <mat-icon>add</mat-icon>
+    </button>
+
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modifier profil</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+          <form [formGroup]="profilForm"  (ngSubmit)="Modifier profil(profilForm.value)">
+
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <mat-form-field class="input-full-width">
+                  <input matInput placeholder="nom" formControlName="nom" >
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <mat-form-field class="input-full-width">
+                  <input matInput placeholder="prenom" formControlName="prenom">
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <mat-form-field class="input-full-width">
+                  <input matInput placeholder="email" formControlName="email">
+                </mat-form-field>
+              </div>
+              <div class="form-group col-md-6">
+                <mat-form-field class="input-full-width">
+                  <input matInput placeholder="adresse" formControlName="adresse">
+                </mat-form-field>
+              </div>
+            </div>
+              </div>
+              <div class="form-group col-md-6">
+                <mat-form-field class="input-full-width">
+                  <input matInput placeholder="tel" formControlName="tel">
+                </mat-form-field>
+              </div>
+              <div class="form-group col-md-6">
+                <mat-form-field class="input-full-width">
+                  <input matInput placeholder="cin" formControlName="cin">
+                </mat-form-field>
+              </div>
+              <div class="form-group col-md-6">
+                <mat-form-field class="input-full-width">
+                  <input matInput placeholder="poste" formControlName="poste">
+                </mat-form-field>
+              </div>
+              <div class="form-group col-md-6">
+                <mat-form-field class="input-full-width">
+                  <input matInput placeholder="entreprise" formControlName="entreprise">
+                </mat-form-field>
+                <div class="form-group col-md-6">
+                  <mat-form-field class="input-full-width">
+                    <input matInput placeholder="passe" formControlName="passe">
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal-footer"></div>
+            <button type="submit" class="btn btn-primary">enregistrer</button>
+            <button type="reset" class="btn btn-secondary" data-dismiss="modal">annuler</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="exampleModalEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelEdit" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edit profil</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+          <form [formGroup]="profilForm">
+
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <mat-form-field class="input-full-width">
+                  <input matInput placeholder="nom" [value]="profilToEdit?.name">
+                </mat-form-field>
+              </div>
+            </div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <mat-form-field class="input-full-width">
+                  <input matInput placeholder="prenom">
+                </mat-form-field>
+              </div>
+              <div class="form-group col-md-6">
+                <mat-form-field class="input-full-width">
+                  <input matInput placeholder="email">
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <mat-form-field class="input-full-width">
+                  <input matInput placeholder="adresse">
+                </mat-form-field>
+              </div>
+              <div class="form-group col-md-6">
+                <mat-form-field class="input-full-width">
+                  <input matInput placeholder="tel">
+                </mat-form-field>
+              </div>
+
+              <div class="form-group col-md-6">
+                <mat-form-field class="input-full-width">
+                  <input matInput placeholder="cin">
+                </mat-form-field>
+              </div>
+              <div class="form-group col-md-6">
+                <mat-form-field class="input-full-width">
+                  <input matInput placeholder="poste">
+                </mat-form-field>
+              </div>
+              <div class="form-group col-md-6">
+                <mat-form-field class="input-full-width">
+                  <input matInput placeholder="entreprise">
+                </mat-form-field>
+              </div>
+              <div class="form-group col-md-6">
+                <mat-form-field class="input-full-width">
+                  <input matInput placeholder="passe">
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="modal-footer"></div>
+            <button type="submit" class="btn btn-primary">enregistrer</button>
+            <button type="reset" class="btn btn-secondary" data-dismiss="modal">annuler</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-menu-admin>

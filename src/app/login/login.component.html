@@ -1,0 +1,28 @@
+<div class="basic-container">
+  <div class="form-container">
+    <form [formGroup]="loginForm" (ngSubmit)="btnLogin(loginForm)">
+      <mat-card>
+        <mat-card-header>
+          <h1 class="title">
+            <img src="https://ahmeddevhd.000webhostapp.com/wp-content/uploads/2017/07/logo-mediain-fi.png">
+          </h1>
+        </mat-card-header>
+        <div class="inputform">
+          <mat-form-field floatPlaceholder="auto">
+            <input matInput formControlName="email" type="text" required placeholder="email">
+          </mat-form-field>
+
+          <mat-form-field floatPlaceholder="auto">
+            <input matInput formControlName="password" type="password" required placeholder="password">
+          </mat-form-field>
+
+          <mat-error *ngIf="errMessage">{{errMessage}}</mat-error>
+          <div class="button-row">
+            <button mat-raised-button type="reset" routerLink="/register">Register</button>
+            <button mat-raised-button color="primary" type="submit">Login</button>
+          </div>
+        </div>
+      </mat-card>
+    </form>
+  </div>
+</div>

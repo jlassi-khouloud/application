@@ -1,0 +1,33 @@
+<div id="wrapper" class="toggled">
+
+  <!-- Sidebar -->
+  <div id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+      <li class="sidebar-brand">
+        <a>
+          Menu Admin
+        </a>
+      </li>
+      <li>
+        <a routerLink='/reservations'>Réservations</a>
+      </li>
+      <li>
+        <a routerLink='/ecrans'>Ecrans</a>
+      </li>
+      <li>
+        <a routerLink="/users">Utilisateurs</a>
+      </li>
+      <li>
+        <a routerLink="/admins">Administrateurs</a>
+      </li>
+      <li>
+        <a (click)='logout()'>Déconnexion</a>
+      </li>
+    </ul>
+  </div>
+  <div id="page-content-wrapper">
+    <div class="container-fluid">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>
