@@ -38,4 +38,11 @@ export class UserService {
   getProfilById(idProfil) {
     return this.http.get('http://localhost:3000/api/profil/' + idProfil);
   }
+  updateProfilById(idProfil, profile) {
+    return this.http.put('http://localhost:3000/api/profil/' + idProfil, profile);
+  }
+  deleteProfilById(idProfil) {
+    return this.http.delete('http://localhost:3000/api/profil/' + idProfil);
+  }
+
 }

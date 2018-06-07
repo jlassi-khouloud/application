@@ -31,13 +31,13 @@ export class ProfilComponent implements OnInit {
 
 
   ngOnInit() {
-    this.userService.getAllProfil().subscribe(res => {
+    this.userService.getProfil().subscribe(res => {
       this.profil = res.json();
     });
   }
 
   profilEditBtn(id) {
-    this.userService.getprofilById(id).subscribe(res => {
+    this.userService.getProfilById(id).subscribe(res => {
       console.log(res.json());
       this.profilToEdit = res.json();
       this.ngOnInit();
@@ -45,18 +45,18 @@ export class ProfilComponent implements OnInit {
   }
 
   profilDeleteBtn(id) {
-     this.userService.deleteprofil(id).subscribe(res => {
+    this.userService.deleteProfilById(id).subscribe(res => {
       console.log(res.json());
       this.ngOnInit();
     });
   }
 
   EditProfil(profil) {
-    profil['nom'] = { nom: profil.nom};
-    profil['prenom'] = { prenom: profil.prenom};
+    profil['nom'] = { nom: profil.nom };
+    profil['prenom'] = { prenom: profil.prenom };
     profil['id'] = { id: profil.id };
     console.log(Profile);
-    this.userService.EditProfil(profil).subscribe(res => {
+    this.userService.updateProfilById(profil['id'], profil).subscribe(res => {
       this.ngOnInit();
       console.log(res.json());
     });

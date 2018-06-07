@@ -11,7 +11,7 @@ export class MenuAdminComponent implements OnInit {
   constructor(private router: Router) { }
 
 
-  events: string[] = ['reservation', 'Ecrans', 'Utilisateurs',Administrateurs];
+  events: string[] = ['reservation', 'Ecrans', 'Utilisateurs', 'Administrateurs'];
   opened: boolean;
 
   shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
