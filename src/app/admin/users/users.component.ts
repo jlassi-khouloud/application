@@ -18,6 +18,7 @@ export class UsersComponent implements OnInit {
 
 
 
+  userToEdit: any;
   settings = {
     mode: 'external',
     columns: {
@@ -88,9 +89,35 @@ export class UsersComponent implements OnInit {
       }
     ], false);
   }
-  createBtn(event) {
-    console.log(event);
-    console.log("event");
+  userEditBtn(id) {
+    this.adminService.getEcranById(id).subscribe(res => {
+      console.log(res.json());
+      this.userToEdit = res.json();
+      this.ngOnInit();
+    });
+  }
 
+  userDelBtn(id) {
+    this.adminService.deleteuser(id).subscribe(res => {
+      console.log(res.json());
+      this.ngOnInit();
+    });
+  }
+
+  AjoutUser(user) {
+    user['name'] = {};
+    user['lastname'] = {};
+    user['email'] = {};
+    user['password'] = {};
+    console.log(user);
+    this.adminService.AddnewEcran(user).subscribe(res => {
+      this.ngOnInit();
+      console.log(res.json());
+    });
+    this.adminService.AddnewUser(user).subscribe(res => {
+      this.ngOnInit();
+      console.log(res.json());
+    });
   }
 }
+

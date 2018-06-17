@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { AdminService } from '../../services/admin.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ecrans',
@@ -61,6 +62,9 @@ export class EcransComponent implements OnInit {
     this.adminService.AddnewEcran(ecran).subscribe(res => {
       this.ngOnInit();
       console.log(res.json());
+      document.getElementById('exampleModal').setAttribute('style', 'display: none');
+      // router.navigate([''])
+
     });
   }
 

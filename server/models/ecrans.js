@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const Ecran = new mongoose.Schema({
-  name: String,
+  name: {type: String, required: true},
   pictureUrl: String,
   youtubeUrl: String,
   emplacementPhysique: String,

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -7,12 +8,9 @@ import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angula
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
- errMessage;
-  registerForm;
-  ngOnInit() {
+  constructor(private authService: AuthService) {
     this.registerForm = new FormGroup({
-        name: new FormControl('', [Validators.required]),
+      name: new FormControl('', [Validators.required]),
       lastname: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
       adresse: new FormControl('', [Validators.required]),
@@ -21,6 +19,19 @@ export class RegisterComponent implements OnInit {
       poste: new FormControl('', [Validators.required]),
       entreprise: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(20)])
+    });
+  }
+  errMessage;
+  registerForm;
+  user;
+  ngOnInit() {
+
+  }
+
+  register() {
+    this.user = this.registerForm.value;
+    this.authService.getregister(this.user).subscribe(res => {
+      console.log(res);
     });
 
   }

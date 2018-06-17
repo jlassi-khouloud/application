@@ -9,18 +9,19 @@ mat-card {
   position: absolute;
   height: 100%;
   width: 100%;
-  background-color: lightgray;
+  background-color:#ffffff;
 }
 
 .form-container {
   display: table-cell;
-  vertical-align: middle;
+
 }
 
 .inputform {
   width: 100%;
   display: flex;
   flex-direction: column;
+
   /* padding: 5em; */
 }
 
@@ -48,4 +49,8 @@ button {
   font-weight: 200;
   line-height: 15px;
   padding: 20px;
+}
+.basic-container {
+  background-image: url('../../assets/img/ccc.jpg');
+  background-size: contain;
 }

@@ -24,7 +24,7 @@ mat-card {
   position: absolute;
   height: 100%;
   width: 100%;
-  background-color: lightgray;
+  background-color: #7cba1;
 }
 
 .form-container {
@@ -48,4 +48,8 @@ button {
   font-weight: 200;
   line-height: 15px;
   padding: 20px;
+}
+.basic-container {
+  background-image: url('../../assets/img/ccc.jpg');
+  background-size: contain;
 }

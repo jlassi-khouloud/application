@@ -6,6 +6,9 @@ import { Http } from '@angular/http';
 })
 export class AdminService {
 
+  deleteuser(arg0: any): any {
+    throw new Error('Method not implemented.');
+  }
   constructor(private http: Http) { }
   getAllUser() {
     const url = 'http://localhost:3000/api/listuser/list';

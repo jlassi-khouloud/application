@@ -1,15 +1,5 @@
 const router = require('express').Router();
-const MongoClient = require('mongodb').MongoClient;
-const ObjectID = require('mongodb').ObjectID;
-const jwt = require('jsonwebtoken');
 
-const connection = (closure) => {
-  return MongoClient.connect('mongodb://localhost:27017/reservationDB', (err, client) => {
-    if (err) return console.log(err);
-    let db = client.db('reservationDB');
-    closure(db);
-  })
-    }
 const mongoose = require('mongoose');
 const Users = require('../models/users');
 mongoose.connect('mongodb://localhost:27017/reservationDB');
